@@ -1,0 +1,31 @@
+server {
+
+	root /var/www/WEBSITE_URL/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name WEBSITE_URL www.WEBSITE_URL;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+        location /api/ {
+                proxy_pass http://127.0.0.1:4000/;
+                proxy_redirect default;
+        }
+
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+                expires 7d;
+                add_header Cache-Control "public";
+        }
+}
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name WEBSITE_URL www.WEBSITE_URL;
+}
