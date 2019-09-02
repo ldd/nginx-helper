@@ -1,7 +1,8 @@
 server {
+	listen 80;
+	listen [::]:80;
 
 	root /var/www/WEBSITE_URL/html;
-
 	index index.html index.htm index.nginx-debian.html;
 
 	server_name WEBSITE_URL www.WEBSITE_URL;
@@ -21,11 +22,4 @@ server {
                 expires 7d;
                 add_header Cache-Control "public";
         }
-}
-
-server {
-	listen 80;
-	listen [::]:80;
-
-	server_name WEBSITE_URL www.WEBSITE_URL;
 }
