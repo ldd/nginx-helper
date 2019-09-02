@@ -35,4 +35,4 @@ sudo apt install -y python-certbot-nginx
 # sudo ufw allow 'Nginx Full'
 # sudo ufw delete allow 'Nginx HTTP'
 
-sudo certbot --nginx -d ${WEBSITE_URL} -d ${WEBSITE_URL}
+sudo certbot --nginx -d ${WEBSITE_URL} -d www.${WEBSITE_URL}
